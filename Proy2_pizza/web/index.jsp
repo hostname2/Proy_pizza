@@ -6,7 +6,7 @@
 //
 // Autores:
 // - 402380848 Grelvin Morales  
-// -  Sebastian Grisati 
+// - 116800742 Sebastian Grisati 
 //
 //
 --%>
@@ -35,7 +35,7 @@
                         
                         <li><a href="#"><i class="fas fa-pizza-slice"></i>&nbsp;Menú</a></li>
                         <li><a href="#">Mis pedidos</a></li>
-                        <li><a href="#">Ingresar</a></li>
+                        <li><a href="login.jsp">Ingresar</a></li>
                     </ul>
                 </div>
                 <!--Carrito-->
