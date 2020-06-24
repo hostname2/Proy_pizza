@@ -5,7 +5,9 @@
  */
 package ServiciosWeb;
 
+import Model.ListaComplementos;
 import Model.ListaPizzas;
+import ServiciosDB.ServicioDBComplemento;
 import ServiciosDB.ServicioDBPizza;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,8 +34,17 @@ public class ServicioMenu extends HttpServlet {
         ListaPizzas productos = new ListaPizzas(sp.obtenerListaPizza());
         return productos.toString();
     }
-    
-    
+
+    public String listaComplementosJSON() {
+        ListaComplementos productos = new ListaComplementos(sc.obtenerListaComplementos());
+        return productos.toString();
+    }
+
+    public void eliminarPizza(String pizza) {
+        sp.eliminarPizza(pizza);
+    }
+
+    ServicioDBComplemento sc = new ServicioDBComplemento();
     ServicioDBPizza sp = new ServicioDBPizza();
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -75,4 +86,8 @@ public class ServicioMenu extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    public static void main(String[] args) {
+        System.out.println(new ServicioMenu().listaPizzasJSON());
+        System.out.println(new ServicioMenu().listaComplementosJSON());
+    }
 }

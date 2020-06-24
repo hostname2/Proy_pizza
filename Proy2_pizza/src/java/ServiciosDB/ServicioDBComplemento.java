@@ -23,7 +23,7 @@ import java.util.Properties;
  */
 public class ServicioDBComplemento {
 
-    public List<Complemento> obtenerListaPizza() {
+    public List<Complemento> obtenerListaComplementos() {
         List<Complemento> r = new ArrayList<>();
         try (Connection cnx = obtenerConexion();
                 Statement stm = cnx.createStatement();
@@ -64,5 +64,5 @@ public class ServicioDBComplemento {
     }
 
     private static final String CMD_LISTAR
-            = "SELECT nombre, tamaño, codigo, precio FROM Pizza; ";
+            = "SELECT idComplemento, nombre, precio, tipo FROM Complemento; ";
 }

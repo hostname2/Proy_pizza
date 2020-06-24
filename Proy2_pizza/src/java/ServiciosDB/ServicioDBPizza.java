@@ -67,19 +67,19 @@ public class ServicioDBPizza {
 
     public boolean eliminarPizza(String codigo) {
 
-        boolean r = false;
+        boolean r = true;
         try (Connection cnx = obtenerConexion();
                 PreparedStatement stm = cnx.prepareStatement(CMD_ELIMINAR);) {
             stm.clearParameters();
             stm.setString(1, codigo);
-            try (ResultSet rs = stm.executeQuery()) {
-                r = true;
-            }
+            System.out.println(stm.toString());
+            stm.execute();
         } catch (IOException
                 | ClassNotFoundException
                 | IllegalAccessException
                 | InstantiationException
                 | SQLException ex) {
+            r = false;
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
         return r;
@@ -101,9 +101,16 @@ public class ServicioDBPizza {
         return cnx;
     }
 
+    public static void main(String[] args) {
+        ServicioDBPizza sp = new ServicioDBPizza();
+
+        if (sp.eliminarPizza("vm5")) {
+            System.out.println("Se elimino alv ya se paso esta vara");
+        }
+    }
     private static final String CMD_ELIMINAR
             = "DELETE FROM Pizza where "
-            + "codigo='?'; ";
+            + "codigo=?; ";
 
     private static final String CMD_LISTAR
             = "SELECT nombre, tamaño, codigo, precio FROM Pizza; ";
