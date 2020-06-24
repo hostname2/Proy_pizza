@@ -6,6 +6,7 @@
 package Model;
 
 import java.util.List;
+import org.json.JSONObject;
 
 /**
  *
@@ -33,6 +34,15 @@ public class Pizza {
         this.tamaño = tamaño;
         this.codigo = codigo;
         this.precio = precio;
+    }
+    
+        public JSONObject toJSON() {
+        JSONObject r = new JSONObject();
+        r.put("nombre", getNombre());
+        r.put("tamaño", getTamaño());
+        r.put("codigo", getCodigo());
+        r.put("precio", getPrecio());
+        return r;
     }
 
     public String getCodigo() {

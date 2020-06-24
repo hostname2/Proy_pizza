@@ -5,6 +5,8 @@
  */
 package Model;
 
+import org.json.JSONObject;
+
 /**
  *
  * @author sebas
@@ -16,11 +18,10 @@ public class Complemento {
     private String nombre;
 
     private double precio;
-    
+
     private String tipo;
 
 //    private Collection<Detalle> detalleCollection;
-
     public Complemento() {
     }
 
@@ -29,6 +30,15 @@ public class Complemento {
         this.nombre = nombre;
         this.precio = precio;
         this.tipo = tipo;
+    }
+
+    public JSONObject toJSON() {
+        JSONObject r = new JSONObject();
+        r.put("nombre", getNombre());
+        r.put("precio", getPrecio());
+        r.put("tipo", getTipo());
+
+        return r;
     }
 
     public Integer getIdComplemento() {
@@ -62,6 +72,5 @@ public class Complemento {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-    
+
 }
