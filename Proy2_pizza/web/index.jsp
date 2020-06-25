@@ -27,13 +27,13 @@
             <div class="nav-contenido">
                 <!--logo-->
                 <div class="logo">
-                    <img src="imagenes/logo.png">
+                    <a href="index.jsp"><img src="imagenes/logo.png"></a>
                 </div>
                 <!--menu-->
                 <div class="menu">
                     <ul>
                         
-                        <li><a href="#"><i class="fas fa-pizza-slice"></i>&nbsp;Menú</a></li>
+                        <li><a href="menu.jsp"><i class="fas fa-pizza-slice"></i>&nbsp;Menú</a></li>
                         <li><a href="#">Mis pedidos</a></li>
                         <li><a href="login.jsp">Ingresar</a></li>
                     </ul>
@@ -51,7 +51,7 @@
         <div class="contenido-container">
             <!-----------------INICIO CONTENIDO---------------->
             <div class="pizzas">
-                <p>Nuetras Pizzas xd</p>
+                <p>Bienvenido</p>
             </div>
             <div class="contenido">
                 <!-------------------FILA 1-------------------->

@@ -10,7 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
     </head>
     <body>
-        <form action="#" class="login-form" method="post">
+        <form action="login.jsp" class="login-form" method="post">
             <h1>Error al ingresar</h1>
             <div class="texto">
                 <p>No se pudo iniciar la sesión, vuelva a intentarlo</p>
