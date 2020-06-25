@@ -226,40 +226,45 @@ a{
     opacity: .85;
 }
 
-.tabla-check {
-    /*border: 1px solid #cc0099;*/
-    /*border-bottom: 1px solid gray;*/
+.tablaCuentas{
+    position: absolute;
+    z-index: 2;
+    left: 35%;
+    top: 45%;
+    transform: translate(-30%,-30%);
+    width: 80%;
     border-collapse: collapse;
-    align-items: center;
-}
-
-.tabla-check th,
-.tabla-check td {
-    padding: 8px 16px 8px 16px;
-}
-
-.tabla-check select {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-style: italic;
-    font-weight: bold;
-    border-bottom: 1px solid gray;
-}
-
-.tabla-check .c1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-/*    font-style: italic;*/
-/*    font-weight: bold;*/
-    /*background-color: #ffe8ff;*/
-    text-align: left;
-}
-
-.tabla-check .f_btn {
-    /*border: 1px solid #cc0099;*/ 
+    border-spacing: 0;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(32,32,32,.3);
+    background: #fafafa;
     text-align: center;
 }
 
-.c1 input{
-    size: 30;
+.tablaCuentas th,.tablaCuentas td{
+    padding: 12px 15px;
+}
+
+.tablaCuentas th{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background: #ea272d;
+    color: #fafafa;
+    text-transform: uppercase;
+}
+
+.tablaCuentas .c2b{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tablaCuentas .c2c{
+    text-align: right;
+    font-weight: bold;
 }

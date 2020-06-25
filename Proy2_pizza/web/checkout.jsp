@@ -58,107 +58,25 @@
                 <!-------------------FILA 1-------------------->
                 <div class="first-row">
                     <div class="new">
-                        <form action="#" class="login-form" method="get">
-                            <h1>Resumen</h1>
-                            <!---
-                            <div class="texto">
-                                <input type="text" name="usuario" required>
-                                <div class="placeholder">Usuario</div>
-                            </div> 
+                        <table class="tablaCuentas">
+                            <thead>
+                            <th style="width: 60px">Tipo</th>
+                            <th style="width: 120px">Nombre</th>
+                            <th style="width: 60px">Tamaño</th>
+                            <th style="width: 60px">Precio</th>
+                            <th style="width: 60px"></th>
+                            </thead>
+                            <tbody>
 
-                            <div class="texto">
-                                <input type="password" name="password" required>
-                                <div class="placeholder">Contraseña</div>
-                            </div>
+                            </tbody>
+                            <tfoot>
+                            <td></td>
+                            <td class="c2b" colspan="3">Total:</td>
+                            <td id="total" class="c2c">
 
-                            <button class="btn" type="submit">
-                                Proceder&nbsp;<i class ="fas fa-arrow-right"></i>
-                            </button>
-                            -->
-                            <table id="formulario-check" class="tabla-check">
-                                <tr>
-                                    <td class="c1">Productos:</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="c1">Pizza:</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="c1">Tamaño:</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="c1">Cantidad:</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="c1">Precio:</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="c1">Productos:</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="c1">Complemento</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="c1">Precio</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="c1">Cantidad:</td>
-                                    <td>
-                                        <select id="menuProductos" name="menuProductos"
-                                                onchange="seleccionarProducto();">
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="f_btn">
-                                        <button type="reset">Cancelar</button>&nbsp;
-                                        <!-- <button type="button" onclick="agregarProducto();">Agregar</button> -->
-                                        <button class="btn" type="button">
-                                            Proceder&nbsp;<i class ="fas fa-arrow-right"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
+                            </td>
+                            </tfoot>
+                        </table>
                     </div>
                     <!----------------------------------------->                   
                 </div>
