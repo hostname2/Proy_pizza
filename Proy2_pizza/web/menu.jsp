@@ -18,10 +18,11 @@
         <meta charset="UTF-8" />
         <title>La Pizza de tu MAMA</title>
         <link href="style_menu.css" rel="stylesheet" type="text/css"/>
+        <script src="js/menuscript.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Work+Sans&display=swap" rel="stylesheet"> 
     </head>
-    <body>
+    <body onload="init();">
         <!-----------------INICIO NAVBAR---------------->
         <div class="navbar-container">
             <div class="nav-contenido">
@@ -55,19 +56,19 @@
             </div>
             <div class="contenido">
                 <!-------------------FILA 1------------------
-                
+
                 <!-------------------FILA 2-------------------->
                 <div class="second-row">
                     <!-----------------PIZZA 1------------------>
                     <div class="pizza-1">
                         <div class="nombre">
-                            <p>Pizza Pepperoni</p>
+                            <p id="pepenombre">Pizza Pepperoni</p>
                         </div>
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
                         <div class="tamaño">
-                            <select>
+                            <select id="pepetam" name="pepetam" onchange="modificarPrecio1();">
                                 <option selected disabled>Elija su tamaño</option>
                                 <option value="grande">Grande</option>
                                 <option value="familiar">Familiar</option>
@@ -75,22 +76,22 @@
                             </select>
                         </div>
                         <div class="precio">
-                            <p>aqui va el precio</p>
+                            <input readonly="" type="number" id="pepeprecio">
                         </div>
                         <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                            <button onclick="agregarCarrito();"> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
                     </div>
                     <!-----------------PIZZA 2------------------>
                     <div class="pizza-2">
                         <div class="nombre">
-                            <p>Pizza Suprema</p> 
+                            <p id="suprenombre">Pizza Suprema</p> 
                         </div>
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
                         <div class="tamaño">
-                            <select>
+                            <select id="supretam" name="supretam" onchange="modificarPrecio2();">
                                 <option selected disabled>Elija su tamaño</option>
                                 <option value="grande">Grande</option>
                                 <option value="familiar">Familiar</option>
@@ -98,22 +99,22 @@
                             </select>
                         </div>
                         <div class="precio">
-                            <p>aqui va el precio</p>
+                            <input readonly="" type="number" id="supreprecio">
                         </div>
                         <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                            <button onclick="agregarCarrito2();"> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
                     </div>
                     <!-----------------PIZZA 3------------------>
                     <div class="pizza-3">
                         <div class="nombre">
-                            <p>Pizza Hawaiana</p>
+                            <p id="hawanombre">Pizza Hawaiana</p>
                         </div>
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
                         <div class="tamaño">
-                            <select>
+                            <select id="hawatam" name="hawatam" onchange="modificarPrecio3();">
                                 <option selected disabled>Elija su tamaño</option>
                                 <option value="grande">Grande</option>
                                 <option value="familiar">Familiar</option>
@@ -121,10 +122,10 @@
                             </select>
                         </div>
                         <div class="precio">
-                            <p>aqui va el precio</p>
+                           <input readonly="" type="number" id="hawaprecio">
                         </div>
                         <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                            <button onclick="agregarCarrito3();"> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -133,13 +134,13 @@
                     <!-----------------PIZZA 4------------------>
                     <div class="pizza-4">
                         <div class="nombre">
-                            <p>Pizza Margarita</p>
+                            <p  id="marganombre">Pizza Margarita</p>
                         </div>
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
                         <div class="tamaño">
-                            <select>
+                            <select id="margatam" name="margatam" onchange="modificarPrecio4();">
                                 <option selected disabled>Elija su tamaño</option>
                                 <option value="grande">Grande</option>
                                 <option value="familiar">Familiar</option>
@@ -147,22 +148,22 @@
                             </select>
                         </div>
                         <div class="precio">
-                            <p>aqui va el precio</p>
+                             <input readonly="" type="number" id="margaprecio">
                         </div>
                         <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                            <button onclick="agregarCarrito4();"> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
                     </div>
                     <!-----------------PIZZA 5------------------>
                     <div class="pizza-5">
                         <div class="nombre">
-                            <p>Pizza Chicago Style</p>
+                            <p id="chicanombre">Pizza Chicago Style</p>
                         </div>
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
                         <div class="tamaño">
-                            <select>
+                            <select id="chicatam" name="chicatam" onchange="modificarPrecio5();">
                                 <option selected disabled>Elija su tamaño</option>
                                 <option value="grande">Grande</option>
                                 <option value="familiar">Familiar</option>
@@ -170,22 +171,22 @@
                             </select>
                         </div>
                         <div class="precio">
-                            <p>aqui va el precio</p>
+                            <input readonly="" type="number" id="chicaprecio">
                         </div>
                         <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                            <button onclick="agregarCarrito5();"> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
                     </div>
                     <!-----------------PIZZA 6------------------>
                     <div class="pizza-6">
                         <div class="nombre">
-                            <p>Pizza Jamón y Queso</p>
+                            <p id="jyqnombre">Pizza Jamón y Queso</p>
                         </div>
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
                         <div class="tamaño">
-                            <select>
+                            <select id="jyqtam" name="jyqtam" onchange="modificarPrecio6();">
                                 <option selected disabled>Elija su tamaño</option>
                                 <option value="grande">Grande</option>
                                 <option value="familiar">Familiar</option>
@@ -193,10 +194,10 @@
                             </select>
                         </div>
                         <div class="precio">
-                            <p>aqui va el precio</p>
+                            <input readonly="" type="number" id="jyqprecio">
                         </div>
                         <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                            <button onclick="agregarCarrito6();"> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
                     </div>
                 </div>
