@@ -66,18 +66,19 @@
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option selected disabled>Elija su tamaño</option>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                         <div class="precio">
                             <p>aqui va el precio</p>
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
                         </div>
                     </div>
                     <!-----------------PIZZA 2------------------>
@@ -88,18 +89,19 @@
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option selected disabled>Elija su tamaño</option>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                         <div class="precio">
                             <p>aqui va el precio</p>
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
                         </div>
                     </div>
                     <!-----------------PIZZA 3------------------>
@@ -110,18 +112,19 @@
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option selected disabled>Elija su tamaño</option>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                         <div class="precio">
                             <p>aqui va el precio</p>
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
                         </div>
                     </div>
                 </div>
@@ -135,18 +138,19 @@
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option selected disabled>Elija su tamaño</option>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                         <div class="precio">
                             <p>aqui va el precio</p>
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
                         </div>
                     </div>
                     <!-----------------PIZZA 5------------------>
@@ -157,18 +161,19 @@
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option selected disabled>Elija su tamaño</option>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                         <div class="precio">
                             <p>aqui va el precio</p>
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
                         </div>
                     </div>
                     <!-----------------PIZZA 6------------------>
@@ -179,18 +184,19 @@
                         <div class="ingredientes">
                             <p>Aqui los ingredientes</p>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option selected disabled>Elija su tamaño</option>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                         <div class="precio">
                             <p>aqui va el precio</p>
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
                         </div>
                     </div>
                 </div>
@@ -210,13 +216,6 @@
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
-                        </div>
                     </div>
                     <!-----------------COMPLEMENTO 2------------------>
                     <div class="comp-2">
@@ -232,13 +231,6 @@
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
-                        </div>
                     </div>
                     <!-----------------COMPLEMENTO 3------------------>
                     <div class="comp-3">
@@ -253,13 +245,6 @@
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                        <div class="tamaño">
-                            <select>
-                                <option value="grande">Grande</option>
-                                <option value="familiar">Familiar</option>
-                                <option value="personal">Personal</option>
-                            </select>
                         </div>
                     </div>
                 </div>
