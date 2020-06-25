@@ -34,8 +34,8 @@ public class ServicoLogin extends HttpServlet {
         boolean flag = true;
         Usuario u = null;
         Cliente c = null;
-        String id_usuario = request.getParameter("id");
-        String usuario_password = request.getParameter("id-password");
+        String id_usuario = request.getParameter("usuario");
+        String usuario_password = request.getParameter("password");
 
         //falta validar el id y contraseHna
         if (id_usuario != null && usuario_password != null) {
@@ -52,28 +52,13 @@ public class ServicoLogin extends HttpServlet {
             String destino = "index.jsp";
             c = sc.obtenerClientebyUser(u.getIdUsuario());
             HttpSession sesionActual = request.getSession(true);
-            switch (u.getTipo()) {
 
-                case 0:
+            sesionActual.setAttribute("Administrador", new BeanCliente(c));
+            sesionActual.setAttribute("usuario", new BeanUsuario(u));
+            destino = "index.jsp";
+            request.setAttribute("registroUsuario", u);
+            request.setAttribute("tipo", u.getTipo());
 
-                    sesionActual.setAttribute("Administrador", new BeanCliente(c));
-                    sesionActual.setAttribute("usuario", new BeanUsuario(u));
-                    destino = "/WEB-INF/vista/Administrador.jsp";
-                    request.setAttribute("registroUsuario", u);
-                    request.setAttribute("registroCliente", c);
-                    break;
-                case 1:
-
-                    sesionActual.setAttribute("clientelog", new BeanCliente(c));
-                    sesionActual.setAttribute("usuario", new BeanUsuario(u));
-                    destino = "/WEB-INF/vista/Cliente.jsp";
-                    request.setAttribute("registroUsuario", u);
-                    request.setAttribute("registroCliente", c);
-                    break;
-                default:
-                    System.err.printf("La operación seleccionada es incorrecta: %d%n", u.getTipo());
-                    break;
-            }
             RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
             dispatcher.forward(request, response);
         }
