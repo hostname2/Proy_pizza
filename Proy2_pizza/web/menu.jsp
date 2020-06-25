@@ -55,22 +55,7 @@
             </div>
             <div class="contenido">
                 <!-------------------FILA 1------------------
-                <div class="first-row">
-                    <div class="new">
-                        <p>Hasta pa los come yerva</p>
-                        <p>no mate animales</p>
-                        <button>VEGANO</button>
-                    </div>
-                <!---------------------------------------
-                <div class="tools">
-                    <div class="search">
-                        <p>Encuentre las</p><strong>&nbsp;MEJORES&nbsp;</strong><p>Pizzas</p>
-                    </div>
-                    <div class="order">
-                        <a href="#">HAGA <font style="color: #f0ff00">AQUÍ</font> SU ORDEN</a>
-                    </div>
-                </div>
-            </div>
+                
                 <!-------------------FILA 2-------------------->
                 <div class="second-row">
                     <!-----------------PIZZA 1------------------>
@@ -87,6 +72,13 @@
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                     </div>
                     <!-----------------PIZZA 2------------------>
                     <div class="pizza-2">
@@ -102,6 +94,13 @@
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                     </div>
                     <!-----------------PIZZA 3------------------>
                     <div class="pizza-3">
@@ -116,6 +115,13 @@
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                        </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -135,6 +141,13 @@
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                     </div>
                     <!-----------------PIZZA 5------------------>
                     <div class="pizza-5">
@@ -150,6 +163,13 @@
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                     </div>
                     <!-----------------PIZZA 6------------------>
                     <div class="pizza-6">
@@ -164,6 +184,13 @@
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                        </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -183,6 +210,13 @@
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                     </div>
                     <!-----------------COMPLEMENTO 2------------------>
                     <div class="comp-2">
@@ -198,6 +232,13 @@
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
                         </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
                     </div>
                     <!-----------------COMPLEMENTO 3------------------>
                     <div class="comp-3">
@@ -212,6 +253,13 @@
                         </div>
                         <div class="ordenar">
                             <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
+                        </div>
+                        <div class="tamaño">
+                            <select>
+                                <option value="grande">Grande</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="personal">Personal</option>
+                            </select>
                         </div>
                     </div>
                 </div>
