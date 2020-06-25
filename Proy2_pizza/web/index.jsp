@@ -41,7 +41,7 @@
                 <!--Carrito-->
                 <div class="carro">
 
-                    <a href="#"> <img src="imagenes/carrito.png"> </a>
+                    <a href="checkout.jsp"> <img src="imagenes/carrito.png"> </a>
                 </div>
             </div>
         </div>

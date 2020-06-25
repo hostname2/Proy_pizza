@@ -98,7 +98,7 @@ public class ServicioDBUsuario {
     }
 
     private static final String CMD_ACTUALIZAR
-            = "UPDATE Cliente SET clave='?' where idUsuario='?'; ";
+            = "UPDATE Cliente SET clave=? where idUsuario=?; ";
 
     private static final String CMD_INSERTAR
             = "INSERT INTO Usuario "
@@ -106,5 +106,5 @@ public class ServicioDBUsuario {
             + "VALUES(?, ?, ?); ";
 
     private static final String CMD_RECUPERAR_BY_USER
-            = "SELECT  clave, tipo FROM Usuario where idUsuario =`?`; ";
+            = "SELECT  clave, tipo FROM Usuario where idUsuario =?; ";
 }

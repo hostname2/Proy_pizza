@@ -7,6 +7,7 @@ package ServiciosWeb;
 
 import Model.ListaComplementos;
 import Model.ListaPizzas;
+import Model.Pizza;
 import ServiciosDB.ServicioDBComplemento;
 import ServiciosDB.ServicioDBPizza;
 import java.io.IOException;
@@ -42,6 +43,10 @@ public class ServicioMenu extends HttpServlet {
 
     public void eliminarPizza(String pizza) {
         sp.eliminarPizza(pizza);
+    }
+    
+    public void agregarPizza(Pizza p){
+        sp.agregarPizza(p);
     }
 
     ServicioDBComplemento sc = new ServicioDBComplemento();

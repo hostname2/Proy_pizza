@@ -115,7 +115,7 @@ public class ServicioDBCliente {
     }
 
     private static final String CMD_ACTUALIZAR
-            = "UPDATE Cliente SET nombre='?', apellidos='?', direccion='?', telefono=? where id='?'; ";
+            = "UPDATE Cliente SET nombre=?, apellidos=?, direccion=?, telefono=? where id=?; ";
 
     private static final String CMD_INSERTAR
             = "INSERT INTO Cliente "
@@ -126,5 +126,5 @@ public class ServicioDBCliente {
             = "SELECT id, nombre, apellidos, direccion, telefono, Usuario_idUsuario FROM Cliente; ";
 
     private static final String CMD_RECUPERAR_BY_USER
-            = "SELECT id, nombre, apellidos, direccion, telefono FROM Cliente where Usuario_idUsuario =`?`; ";
+            = "SELECT id, nombre, apellidos, direccion, telefono FROM Cliente where Usuario_idUsuario =?; ";
 }
