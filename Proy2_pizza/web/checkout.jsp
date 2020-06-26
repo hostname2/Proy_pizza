@@ -18,11 +18,12 @@
         <meta charset="UTF-8" />
         <title>La Pizza de tu MAMA</title>
         <link href="style_checkout.css" rel="stylesheet" type="text/css"/>
+        <script src="js/menuscript.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Work+Sans&display=swap" rel="stylesheet"> 
     </head>
-    <body>
+    <body onload="initCarrito();">
         <!-----------------INICIO NAVBAR---------------->
         <div class="navbar-container">
             <div class="nav-contenido">
@@ -63,10 +64,11 @@
                             <th style="width: 60px">Tipo</th>
                             <th style="width: 120px">Nombre</th>
                             <th style="width: 60px">Tamaño</th>
+                            <th style="width: 90px;">Cant.</th>
                             <th style="width: 60px">Precio</th>
                             <th style="width: 60px"></th>
                             </thead>
-                            <tbody>
+                            <tbody  id="cuerpoTabla">
 
                             </tbody>
                             <tfoot>
@@ -74,6 +76,9 @@
                             <td class="c2b" colspan="3">Total:</td>
                             <td id="total" class="c2c">
 
+                            </td>
+                            <td>
+                                <button onclick="EnviarFactura();">Facturar</button>
                             </td>
                             </tfoot>
                         </table>
