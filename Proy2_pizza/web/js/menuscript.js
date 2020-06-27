@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/* global fetch */
 var datospizza = null;
 var datoscont = null;
 var tablaFactura = [];
@@ -14,8 +15,6 @@ var preciomarga = null;
 var preciochica = null;
 var preciojyq = null;
 var total = 0;
-
-
 function init() {
     modificarPrecio1();
     modificarPrecio2();
@@ -283,28 +282,34 @@ function agregarCarrito6() {
 
 function EnviarFactura() {
     console.log("Enviando factura a ServicioFactura");
-
     var data = new FormData();
-    for (var i = 0; i < tablaFactura.length; i++) {
-        data.append(i, JSON.stringify(tablaFactura[i]));
-        console.log(JSON.stringify(tablaFactura[i]));
-    }
-    console.log(data.toString());
+    var datos = JSON.stringify(tablaFactura);
+    data.append('Factura', datos);
+    data.set('Factura', datos);
+    data.forEach((value, key) => {
+        console.log(key + " " + value)
+    });
 
-
-    fetch("ServicioFactura",
-            {
-                method: "POST",
-                body: data
-            })
-            .then(function (res) {
-                return res.json();
-            })
-            .then(function (data) {
-                alert(JSON.stringify(data));
-            });
+    getJSON('ServicioFactura', data, procesarRespuesta);
+}
+function procesarRespuesta(datos) {
+    console.log(datos);
+//    actualizarCodigo(datos);
+    eliminarTabla();
 }
 
+function eliminarTabla() {
+    var refTabla = document.getElementById("cuerpoTabla");
+    if (refTabla) {
+
+        for (var i = 0; i < refTabla.rows.length; i++) {
+        tablaFactura.splice(i, 1);
+        refTabla.deleteRow(i-i);
+        }
+
+    }
+
+}
 
 function guardarFactura() {
     localStorage.setItem("Factura", JSON.stringify(tablaFactura));
@@ -334,7 +339,6 @@ function agregarDatos() {
 
 function agregar(nuevoProducto) {
     var refTabla = document.getElementById("cuerpoTabla");
-
     if (refTabla && nuevoProducto) {
         var datosProducto = {
             tipo: "Pizza",
@@ -343,23 +347,18 @@ function agregar(nuevoProducto) {
             tamano: nuevoProducto.tamano,
             cantidad: 1
         };
-
         console.log("Agregando producto: " + JSON.stringify(nuevoProducto));
-
         var indice = refTabla.rows.length;
         var nuevaFila = refTabla.insertRow(-1);
         var nuevaCelda;
-
         nuevaCelda = nuevaFila.insertCell(-1);
         nuevaCelda.innerText = datosProducto.tipo;
         nuevaCelda = nuevaFila.insertCell(-1);
         nuevaCelda.id = "nom" + indice.toString();
         nuevaCelda.innerText = nuevoProducto.nombre;
-
         nuevaCelda = nuevaFila.insertCell(-1);
         nuevaCelda.id = "tam" + indice.toString();
         nuevaCelda.innerText = nuevoProducto.tamano;
-
         // La cantidad del producto se muestra en un campo editable.
         // El atributo 'indice' sirve para identificar a cuál
         // producto se refiere el campo, por medio de la posición
@@ -367,16 +366,13 @@ function agregar(nuevoProducto) {
 
         nuevaCelda = nuevaFila.insertCell(-1);
         var campo = document.createElement("INPUT");
-
         campo.setAttribute("type", "number");
         campo.setAttribute("min", 0.0);
         campo.setAttribute("max", 1000.0);
-
         campo.setAttribute("indice", indice);
         campo.value = datosProducto.cantidad;
         //campo.onchange = actualizarCampo;
         nuevaCelda.appendChild(campo);
-
         // El valor del subtotal debe tener un atributo 'id', para poder
         // referenciarlo cuando se actualiza la cantidad.
 
@@ -385,21 +381,17 @@ function agregar(nuevoProducto) {
         // nuevaCelda.id = "total" + String(indice);
 //        nuevaCelda.className = "c2";
         nuevaCelda.innerText = nuevoProducto.precio;
-
         // Por último, se coloca un botón para indicar cuando una fila
         // debe eliminarse. Observe que el atributo 'indice' es asignado
         // al botón, pero el evento es manejado por el icono asignado.
 
         nuevaCelda = nuevaFila.insertCell(-1);
         nuevaCelda.className = "c3";
-
         var btn = document.createElement("BUTTON");
         btn.className = "btn";
         btn.setAttribute("indice", indice);
         btn.innerHTML = "<i class='material-icons' onclick='eliminarFila();'>delete</i>";
-
         nuevaCelda.appendChild(btn);
-
         // Ya se ha incluido el producto, por lo que hay que recalcular
         // los subtotales y el total general.
 
@@ -419,14 +411,13 @@ function eliminarFila() {
 
 function eliminar(fila) {
     console.log("Eliminando fila: " + fila);
-
     var refTabla = document.getElementById("cuerpoTabla");
     if (refTabla) {
 
-        //var codigo = tablaFactura[fila].codigo;
+//var codigo = tablaFactura[fila].codigo;
 
-        // Elimina la fila de la tabla de datos y de la tabla mostrada
-        // en la página.
+// Elimina la fila de la tabla de datos y de la tabla mostrada
+// en la página.
         var lugar = "total" + String(fila);
         var refSubtotal = document.getElementById(lugar);
         restarTotal(refSubtotal.innerText);
@@ -435,38 +426,20 @@ function eliminar(fila) {
         var refnom = document.getElementById("nom" + String(fila));
 //        var reftam = "tam" + String(fila);
         var reftam = document.getElementById("tam" + String(fila));
-
         eliminarenFactura(refnom.innerText, reftam.innerText);
-
         //-------------------------------------------------------------------
         tablaFactura.splice(fila, 1);
         refTabla.deleteRow(fila);
 
-        // Como al borrar la fila, cambia la posición relativa de los
-        // elementos que se encontraban en las filas superiores (mostradas
-        // en la parte inferior de la tabla), hay que renumerar los atributos
-        // de cada fila.
-//        total = 0;
         for (var i = fila; i < refTabla.rows.length; i++) {
             var refFila = refTabla.rows[i];
 //
             var campo = refFila.getElementsByTagName("INPUT")[0];
             campo.setAttribute("indice", i);
-
             var refSubtotal = document.getElementById("total" + String(i + 1));
             var refnom = document.getElementById("nom" + String(i + 1));
             var reftam = document.getElementById("tam" + String(i + 1));
-//            if (refSubtotal !== null) {
-//                total += parseInt(refSubtotal.innerText);
-//            }
-//
-//            var lugar = "total" + String(i);
-//            var refSubtotal = document.getElementById(lugar);
-//            restarTotal(refSubtotal.innerText);
-//
-//            // (Observe que nunca se da el caso de que hayan elementos con
-//            // un id repetido).
-//
+
 
             refSubtotal.id = "total" + String(i);
             refnom.id = "nom" + String(i);
@@ -475,14 +448,6 @@ function eliminar(fila) {
             var btn = refFila.getElementsByTagName("I")[0].parentNode;
             btn.setAttribute("indice", i);
         }
-//        var reftotal = document.getElementById("total");
-//        reftotal.innerText = total;
-//
-//        cambiarDisponibilidad(codigo, true);
-//
-//        actualizarMenu();
-//        actualizarTabla();
-//        actualizarCodigo();
     }
 }
 

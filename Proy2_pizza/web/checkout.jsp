@@ -18,6 +18,7 @@
         <meta charset="UTF-8" />
         <title>La Pizza de tu MAMA</title>
         <link href="style_checkout.css" rel="stylesheet" type="text/css"/>
+        <script src="js/getJSON.js" type="text/javascript"></script>
         <script src="js/menuscript.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
@@ -78,7 +79,7 @@
 
                             </td>
                             <td>
-                                <button onclick="EnviarFactura();">Facturar</button>
+                                <button type="submit" onclick="EnviarFactura();">Facturar</button>
                             </td>
                             </tfoot>
                         </table>

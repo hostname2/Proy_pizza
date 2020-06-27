@@ -6,9 +6,11 @@
 package ServiciosWeb;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import static java.lang.System.out;
 import java.util.Enumeration;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,31 +22,38 @@ import org.json.JSONObject;
  *
  * @author sebas
  */
-@WebServlet(name = "ServicioFactura", urlPatterns = {"/ServicioFactura"})
+@WebServlet(
+        name = "ServicioFactura",
+        urlPatterns = {"/ServicioFactura"}
+)
+
+@MultipartConfig
 public class ServicioFactura extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        JSONObject r = new JSONObject();
-        JSONArray a = new JSONArray();
+        try (PrintWriter out = response.getWriter()) {
+            JSONObject r = new JSONObject();
+            JSONArray a = new JSONArray();
 
-        Enumeration<String> p = request.getParameterNames();
-        while (p.hasMoreElements()) {
-            //JSONObject k = new JSONObject();
-            String n = p.nextElement();
-            String[] v = request.getParameterValues(n);
-            if (v.length == 1) {
-                JSONObject k = new JSONObject(v[0]);
+            Enumeration<String> p = request.getParameterNames();
+            while (p.hasMoreElements()) {
+                //JSONObject k = new JSONObject();
+                String n = p.nextElement();
+                String[] v = request.getParameterValues(n);
+                if (v.length == 1) {
+                    JSONArray k = new JSONArray(v[0]);
 
-                a.put(k);
-                System.out.println(k);
+                    //a.put(k);
+                    System.out.println(k);
+                    r.put("tablaFactura", k);
+                }
             }
-        }
-        r.put("tablaFactura", a);
 
-        System.out.println(a.toString());
-        out.println(r.toString(4));
+            System.out.println(a.toString());
+            out.println(r.toString(4));
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
