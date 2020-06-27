@@ -3,61 +3,65 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ServiciosWeb;
+package Servicios;
 
+import Beans.BeanCliente;
+import Beans.BeanUsuario;
+import Model.Cliente;
+import Model.Usuario;
+import ServiciosDB.ServicioDBCliente;
+import ServiciosDB.ServicioDBUsuario;
+import ServiciosWEB.ServicioWeb;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.util.Enumeration;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author sebas
  */
-@WebServlet(
-        name = "ServicioFactura",
-        urlPatterns = {"/ServicioFactura"}
-)
-
-@MultipartConfig
-public class ServicioFactura extends HttpServlet {
+@WebServlet(name = "ServicoLogin", urlPatterns = {"/ServicoLogin"})
+public class ServicoLogin extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            JSONObject r = new JSONObject();
-            JSONArray a = new JSONArray();
+        Usuario u = null;
+        Cliente c = null;
+        String id_usuario = request.getParameter("usuario");
+        String usuario_password = request.getParameter("password");
 
-            Enumeration<String> p = request.getParameterNames();
-            while (p.hasMoreElements()) {
-                //JSONObject k = new JSONObject();
-                String n = p.nextElement();
-                String[] v = request.getParameterValues(n);
-                if (v.length == 1) {
-                    JSONArray k = new JSONArray(v[0]);
-
-                    //a.put(k);
-                    System.out.println(k);
-                    r.put("tablaFactura", k);
-                }
-            }
-
-            System.out.println(a.toString());
-            out.println(r.toString(4));
+            u = sw.loginUsuario(id_usuario, usuario_password);
+            c = sw.retornaCliente(u);
+            HttpSession sesion = request.getSession(true);
+            String destino;
+            HttpSession sesionActual = request.getSession(true);
+        if (sw.esadmin(u.getTipo())) {
+                sesionActual.setAttribute("Administrador", new BeanCliente(c));
+                sesionActual.setAttribute("usuario", new BeanUsuario(u));
+                destino = "Aqui_iria_la_pag_de_admin_si_hubiera_alguna.jsp";
+                request.setAttribute("registroUsuario", u);
+                request.setAttribute("registroCliente", c);
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("tiempo.jsp");
-        dispatcher.forward(request, response);
-    }
+        else{
+                sesionActual.setAttribute("clientelog", new BeanCliente(c));
+                sesionActual.setAttribute("usuario", new BeanUsuario(u));
+                destino = "index.jsp";
+                request.setAttribute("registroUsuario", u);
+                request.setAttribute("registroCliente", c);
+        }
+                    RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
+                    dispatcher.forward(request, response);
+        }
+
+    
+    ServicioWeb sw = new ServicioWeb();
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

@@ -14,14 +14,14 @@ public class Usuario {
 
     private String clave;
 
-    private short tipo;
+    private int tipo;
 
     private Cliente cliente;
 
     public Usuario() {
     }
 
-    public Usuario(String idUsuario, String clave, short tipo) {
+    public Usuario(String idUsuario, String clave, int tipo) {
         this.idUsuario = idUsuario;
         this.clave = clave;
         this.tipo = tipo;
@@ -29,7 +29,7 @@ public class Usuario {
 
     
     
-    public Usuario(String idUsuario, String clave, short tipo, Cliente cliente) {
+    public Usuario(String idUsuario, String clave, int tipo, Cliente cliente) {
         this.idUsuario = idUsuario;
         this.clave = clave;
         this.tipo = tipo;
@@ -52,11 +52,11 @@ public class Usuario {
         this.clave = clave;
     }
 
-    public short getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
-    public void setTipo(short tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 

@@ -3,54 +3,61 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ServiciosWeb;
+package Servicios;
 
-import Model.ListaComplementos;
-import Model.ListaPizzas;
-import Model.Pizza;
-import ServiciosDB.ServicioDBComplemento;
-import ServiciosDB.ServicioDBPizza;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.util.Enumeration;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
  * @author sebas
  */
-@WebServlet(name = "ServicioMenu", urlPatterns = {"/ServicioMenu"})
-public class ServicioMenu extends HttpServlet {
+@WebServlet(
+        name = "ServicioFactura",
+        urlPatterns = {"/ServicioFactura"}
+)
+
+@MultipartConfig
+public class ServicioFactura extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            JSONObject r = new JSONObject();
+            JSONArray a = new JSONArray();
 
-    }
+            Enumeration<String> p = request.getParameterNames();
+            while (p.hasMoreElements()) {
+                //JSONObject k = new JSONObject();
+                String n = p.nextElement();
+                String[] v = request.getParameterValues(n);
+                if (v.length == 1) {
+                    JSONArray k = new JSONArray(v[0]);
 
-    public String listaPizzasJSON() {
-        ListaPizzas productos = new ListaPizzas(sp.obtenerListaPizza());
-        return productos.toString();
-    }
+                    //a.put(k);
+                    System.out.println(k);
+                    r.put("tablaFactura", k);
+                }
+            }
 
-    public String listaComplementosJSON() {
-        ListaComplementos productos = new ListaComplementos(sc.obtenerListaComplementos());
-        return productos.toString();
+            System.out.println(a.toString());
+            out.println(r.toString(4));
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("tiempo.jsp");
+        dispatcher.forward(request, response);
     }
-
-    public void eliminarPizza(String pizza) {
-        sp.eliminarPizza(pizza);
-    }
-    
-    public void agregarPizza(Pizza p){
-        sp.agregarPizza(p);
-    }
-
-    ServicioDBComplemento sc = new ServicioDBComplemento();
-    ServicioDBPizza sp = new ServicioDBPizza();
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -91,8 +98,4 @@ public class ServicioMenu extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public static void main(String[] args) {
-        System.out.println(new ServicioMenu().listaPizzasJSON());
-        System.out.println(new ServicioMenu().listaComplementosJSON());
-    }
 }

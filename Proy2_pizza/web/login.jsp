@@ -22,7 +22,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
     </head>
     <body onload ="init();">
-        <form onsubmit ="ServicoLogin" class="login-form" method="post">
+        <form class="login-form" method="post">
             <h1>Sign In</h1>
             <div class="texto">
                 <input type="text" name="usuario" required>
@@ -38,7 +38,7 @@
                 <!---<button class="btn2" id="registrar-btn" >Regístrate</button>-->
             </div> 
 
-            <button class="btn" type="submit">
+            <button class="btn" type="submit" formaction="ServicoLogin">
                 <i class ="fas fa-arrow-right"></i>
             </button>
         </form>
