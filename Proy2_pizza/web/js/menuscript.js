@@ -303,8 +303,9 @@ function eliminarTabla() {
     if (refTabla) {
 
         for (var i = 0; i < refTabla.rows.length; i++) {
-        tablaFactura.splice(i, 1);
-        refTabla.deleteRow(i-i);
+//        tablaFactura.splice(i, 1);
+//        refTabla.deleteRow(i-i);
+        eliminar(i);
         }
 
     }
