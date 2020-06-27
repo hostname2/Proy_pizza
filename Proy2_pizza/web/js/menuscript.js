@@ -14,6 +14,12 @@ var preciohawa = null;
 var preciomarga = null;
 var preciochica = null;
 var preciojyq = null;
+var codpepe = null;
+var codsupre = null;
+var codhawa = null;
+var codmarga = null;
+var codchica = null;
+var codjyq = null;
 var total = 0;
 function init() {
     modificarPrecio1();
@@ -40,8 +46,8 @@ function agregarCarrito() {
         var precio = refprecio.value;
         var tamano = reftam.value;
         if (codigo !== "null") {
-            console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano);
-            var pipsa = new Pizza(codigo, precio, tamano);
+            console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano+", " + codpepe);
+            var pipsa = new Pizza(codigo, precio, tamano, codpepe);
             tablaFactura.push(pipsa);
             //productoSeleccionado = obtenerProducto(codigo);
         } else {
@@ -57,12 +63,15 @@ function modificarPrecio1() {
         var tamano = reftam.value;
         if (tamano === "grande") {
             preciopepe = 5000;
+            codpepe = "ssg5";
         }
         if (tamano === "familiar") {
             preciopepe = 7000;
+            codpepe = "ssm5";
         }
         if (tamano === "personal") {
             preciopepe = 3000;
+            codpepe = "ssp5";
         }
         modificarPreciopepe();
     }
@@ -79,12 +88,15 @@ function modificarPrecio2() {
         var tamano = reftam.value;
         if (tamano === "grande") {
             preciosupre = 6000;
+            codsupre = "sg5";
         }
         if (tamano === "familiar") {
             preciosupre = 8000;
+            codsupre = "sm5";
         }
         if (tamano === "personal") {
             preciosupre = 3500;
+            codspre = "sp5";
         }
         modificarPreciosupre();
     }
@@ -102,12 +114,15 @@ function modificarPrecio3() {
         var tamano = reftam.value;
         if (tamano === "grande") {
             preciohawa = 5000;
+            codhawa = "hg5";
         }
         if (tamano === "familiar") {
             preciohawa = 7000;
+            codhawa = "hm5";
         }
         if (tamano === "personal") {
             preciohawa = 3000;
+            codhawa = "hp5";
         }
         modificarPreciohawa();
     }
@@ -125,12 +140,15 @@ function modificarPrecio4() {
         var tamano = reftam.value;
         if (tamano === "grande") {
             preciomarga = 5000;
+            codmarga = "mg5";
         }
         if (tamano === "familiar") {
             preciomarga = 7000;
+            codmarga = "mm5";
         }
         if (tamano === "personal") {
             preciomarga = 3000;
+            codmarga = "mp5";
         }
         modificarPreciomarga();
     }
@@ -148,12 +166,15 @@ function modificarPrecio5() {
         var tamano = reftam.value;
         if (tamano === "grande") {
             preciochica = 5000;
+            codchica = "cg5";
         }
         if (tamano === "familiar") {
             preciochica = 7000;
+            codchica = "cm5";
         }
         if (tamano === "personal") {
             preciochica = 3000;
+            codchica = "cp5";
         }
         modificarPreciochica();
     }
@@ -171,12 +192,15 @@ function modificarPrecio6() {
         var tamano = reftam.value;
         if (tamano === "grande") {
             preciojyq = 5000;
+            codjyq = "vg5";
         }
         if (tamano === "familiar") {
             preciojyq = 7000;
+            codjyq = "vm5";
         }
         if (tamano === "personal") {
             preciojyq = 3000;
+            codjyq = "vp5";
         }
         modificarPreciojyq();
     }
@@ -303,9 +327,8 @@ function eliminarTabla() {
     if (refTabla) {
 
         for (var i = 0; i < refTabla.rows.length; i++) {
-//        tablaFactura.splice(i, 1);
-//        refTabla.deleteRow(i-i);
-        eliminar(i);
+        tablaFactura.splice(i, 1);
+        refTabla.deleteRow(i-i);
         }
 
     }
@@ -469,9 +492,10 @@ function eliminarenFactura(refnom, reftam) {
 }
 
 
-function Pizza(nombre, precio, tamano) {
+function Pizza(nombre, precio, tamano,cod) {
     this.nombre = nombre;
     this.precio = precio;
     this.tamano = tamano;
+    this.codigo = cod;
 }
 
