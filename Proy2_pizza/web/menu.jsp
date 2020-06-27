@@ -42,7 +42,7 @@
                 <!--Carrito-->
                 <div class="carro">
 
-                    <a href="checkout.jsp"> <img src="imagenes/carrito.png"> </a>
+                    <a href="checkout.jsp" onclick="guardarFactura();"> <img src="imagenes/carrito.png"> </a>
                 </div>
             </div>
         </div>
