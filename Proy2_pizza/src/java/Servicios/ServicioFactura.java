@@ -5,6 +5,8 @@
  */
 package Servicios;
 
+import Model.Detalle;
+import ServiciosDB.ServicioDBDetalle;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -45,19 +47,37 @@ public class ServicioFactura extends HttpServlet {
                 String[] v = request.getParameterValues(n);
                 if (v.length == 1) {
                     JSONArray k = new JSONArray(v[0]);
-
+                    a = new JSONArray(v[0]);
                     //a.put(k);
-                    System.out.println(k);
+//                    System.out.println(k);
                     r.put("tablaFactura", k);
                 }
+            }
+
+            for (int i = 0; i < a.length(); i++) {
+                System.out.println(i);
+                JSONObject lt = a.getJSONObject(i);
+                System.out.println(lt.get("codigo"));
+                System.out.println(lt.get("nombre"));
+                System.out.println(lt.get("precio"));
+                System.out.println(lt.get("tamano"));
+                //  double d = Double.parseDouble(lt.get("cantidad").toString());
+                String c = lt.get("codigo").toString();
+                String pre = lt.getString("precio");
+                Detalle detalle = new Detalle(pre, null, c);
+                sd.agregarDetalle(detalle, i - 1);
+
             }
 
             System.out.println(a.toString());
             out.println(r.toString(4));
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("tiempo.jsp");
-        dispatcher.forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("tiempo.jsp");
+//
+//        dispatcher.forward(request, response);
     }
+
+    ServicioDBDetalle sd = new ServicioDBDetalle();
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

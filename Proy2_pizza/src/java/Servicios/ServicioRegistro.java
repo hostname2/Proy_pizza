@@ -5,9 +5,6 @@
  */
 package Servicios;
 
-import ServiciosWEB.ServicioWeb;
-import Beans.BeanCliente;
-import Beans.BeanUsuario;
 import Model.Cliente;
 import Model.Usuario;
 import ServiciosDB.ServicioDBCliente;
@@ -17,51 +14,47 @@ import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author sebas
  */
-@WebServlet(name = "ServicoLogin", urlPatterns = {"/ServicoLogin"})
-public class ServicoLogin extends HttpServlet {
+@WebServlet(name = "ServicioRegistro", urlPatterns = {"/ServicioRegistro"}, initParams = {
+    @WebInitParam(name = "index", value = "index.jsp")})
+public class ServicioRegistro extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Usuario u = null;
-        Cliente c = null;
-        String id_usuario = request.getParameter("usuario");
-        String usuario_password = request.getParameter("password");
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String identificacion = request.getParameter("identificacion");
+        String direccion = request.getParameter("direccion");
+        String telefono = request.getParameter("telefono");
+        String usuario = request.getParameter("usuario");
+        String contraseña = request.getParameter("clave");
 
-            u = sw.loginUsuario(id_usuario, usuario_password);
-            c = sw.retornaCliente(u);
-            HttpSession sesion = request.getSession(true);
-            String destino;
-            HttpSession sesionActual = request.getSession(true);
-        if (sw.esadmin(u.getTipo())) {
-                sesionActual.setAttribute("Administrador", new BeanCliente(c));
-                sesionActual.setAttribute("usuario", new BeanUsuario(u));
-                destino = "administracion.jsp";
-                request.setAttribute("registroUsuario", u);
-                request.setAttribute("registroCliente", c);
-        }
-        else{
-                sesionActual.setAttribute("clientelog", new BeanCliente(c));
-                sesionActual.setAttribute("usuario", new BeanUsuario(u));
-                destino = "secondindex.jsp";
-                request.setAttribute("registroUsuario", u);
-                request.setAttribute("registroCliente", c);
-        }
-                    RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
-                    dispatcher.forward(request, response);
-        }
-
+        int tel = Integer.parseInt(telefono);
+        System.out.println(nombre);
+        System.out.println(apellido);
+        System.out.println(identificacion);
+        System.out.println(direccion);
+        System.out.println(tel);
+        System.out.println(usuario);
+        System.out.println(contraseña);
+        su.agregarUser(new Usuario(usuario, contraseña, 1));
+        sc.agregarCliente(new Cliente(identificacion, nombre, apellido, direccion, tel, usuario));
+        //String id, String nombre, String apellidos, String direccion, int telefono, String idUsuario
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        dispatcher.forward(request, response);
+    }
     
-    ServicioWeb sw = new ServicioWeb();
+    ServicioDBUsuario su = new ServicioDBUsuario();
+    ServicioDBCliente sc = new ServicioDBCliente();
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

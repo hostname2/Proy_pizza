@@ -16,115 +16,73 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>La Pizza de tu MAMA</title>
-        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>Sign In</title>
+        <link href="CSS/login.css" rel="stylesheet" type="text/css"/>
+        <script src="js/login-registro.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Work+Sans&display=swap" rel="stylesheet"> 
     </head>
-    <body>
-        <!-----------------INICIO NAVBAR---------------->
-        <div class="navbar-container">
-            <div class="nav-contenido">
-                <!--logo-->
-                <div class="logo">
-                    <a href="index.jsp"><img src="imagenes/logo.png"></a>
-                </div>
-                <!--menu-->
-                <div class="menu">
-                    <ul>
-                        
-                        <li><a href="menu.jsp"><i class="fas fa-pizza-slice"></i>&nbsp;Menú</a></li>
-                        <li><a href="#">Mis pedidos</a></li>
-                        <li><a href="login.jsp">Ingresar</a></li>
-                    </ul>
-                </div>
-                <!--Carrito-->
-                <div class="carro">
+    <body onload ="init();">
+        <form class="login-form" method="post">
+            <h1>Sign In</h1>
+            <div class="texto">
+                <input type="text" name="usuario" required>
+                <div class="placeholder">Usuario</div>
+            </div> 
 
-                    <a href="checkout.jsp"> <img src="imagenes/carrito.png"> </a>
-                </div>
+            <div class="texto">
+                <input type="password" name="password" required>
+                <div class="placeholder">Contraseña</div>
+            </div> 
+
+            <div class="registrar" id="regis">
+                <!---<button class="btn2" id="registrar-btn" >Regístrate</button>-->
+            </div> 
+
+            <button class="btn" type="submit" formaction="ServicoLogin">
+                <i class ="fas fa-arrow-right"></i>
+            </button>
+        </form>
+
+        <!------ MODAL REGISTER ------>
+
+        <div class="bg-register">
+            <div class="register-content">
+                <div class="cerrar" id="close"><i class="fas fa-window-close" onclick="ceclose();"></i></div>
+                <form action="ServicioRegistro" class="register-form" method="post">
+                    <h1>Registro</h1>
+                    <div class="texto-1">
+                        <input type="text" name="nombre" id="nombre" required="" placeholder="Nombre">
+                    </div> 
+
+                    <div class="texto-1">
+                        <input type="text" name="apellido" id="apellido" required="" placeholder="Apellido"> 
+                    </div> 
+
+                    <div class="texto-1">
+                        <input type="text" name="identificacion" id="identificacion" required="" placeholder="Identificación">    
+                    </div> 
+
+                    <div class="texto-1">
+                        <input type="text" name="direccion" id="direccion" required="" placeholder="Dirección">  
+                    </div> 
+
+                    <div class="texto-1">
+                        <input type="text" name="telefono"  id="telefono" required="" placeholder="Teléfono">
+                    </div> 
+
+                    <div class="texto-1">
+                        <input type="text" name="usuario" id="usuario" required="" placeholder="Usuario">
+                    </div> 
+
+                    <div class="texto-1">
+                        <input type="text" name="clave" id="clave" required="" placeholder="Contraseña">
+                    </div> 
+
+                    <button class="btn-1" id="registro-btn" type="submit">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </form>
             </div>
         </div>
-        <!-----------------FIN NAVBAR---------------->
-
-        <!-----------------COMIENZA LA PARTE DEL CONTENIDO---------------->
-        <div class="contenido-container">
-            <!-----------------INICIO CONTENIDO---------------->
-            <div class="pizzas">
-                <p>Bienvenido</p>
-            </div>
-            <div class="contenido">
-                <!-------------------FILA 1-------------------->
-                <div class="first-row">
-                    <div class="new">
-                        <p>Hasta pa los come yerva</p>
-                        <p>no mate animales</p>
-                        <button>VEGANO</button>
-                    </div>
-                    <!----------------------------------------->
-                    <div class="tools">
-                        <div class="search">
-                            <p>Encuentre las</p><strong>&nbsp;MEJORES&nbsp;</strong><p>Pizzas</p>
-                        </div>
-                        <div class="order">
-                            <a href="#">HAGA <font style="color: #f0ff00">AQUÍ</font> SU ORDEN</a>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILA 2-------------------->
-                <div class="second-row">
-                    <!-----------------PIZZA 1------------------>
-                    <div class="pizza-1">
-                        <div class="nombre">
-                            <p>Pizza Jamón y Queso</p>
-                        </div>
-                        <div class="ingredientes">
-                            <p>Aqui los ingredientes</p>
-                        </div>
-                        <div class="precio">
-                            <p>aqui va el precio</p>
-                        </div>
-                        <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <!-----------------PIZZA 2------------------>
-                    <div class="pizza-2">
-                        <div class="nombre">
-                            <p>Pizza Suprema</p> 
-                        </div>
-                        <div class="ingredientes">
-                            <p>Aqui los ingredientes</p>
-                        </div>
-                        <div class="precio">
-                            <p>aqui va el precio</p>
-                        </div>
-                        <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <!-----------------PIZZA 3------------------>
-                    <div class="pizza-3">
-                        <div class="nombre">
-                            <p>Pizza con Piña</p>
-                        </div>
-                        <div class="ingredientes">
-                            <p>Aqui los ingredientes</p>
-                        </div>
-                        <div class="precio">
-                            <p>aqui va el precio</p>
-                        </div>
-                        <div class="ordenar">
-                            <button> <i class="fas fa-plus"></i>&nbsp;Añadir al carrito</button>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILA 3-------------------->
-                <div class="third-row">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+    </body>
 </html>

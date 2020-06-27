@@ -15,6 +15,8 @@ public class Factura {
     private Integer idFactura;
 
     private Date fecha;
+    
+    private String detalleid;
 
     private Cliente clienteid;
 
@@ -25,9 +27,10 @@ public class Factura {
     public Factura() {
     }
 
-    public Factura(Integer idFactura, Date fecha) {
+    public Factura(Integer idFactura, Date fecha, String detalleid) {
         this.idFactura = idFactura;
         this.fecha = fecha;
+        this.detalleid = detalleid;
     }
     
 
@@ -38,6 +41,16 @@ public class Factura {
         this.detalleidDetalle = detalleidDetalle;
         this.restaurante = restaurante;
     }
+
+    public String getDetalleid() {
+        return detalleid;
+    }
+
+    public void setDetalleid(String detalleid) {
+        this.detalleid = detalleid;
+    }
+    
+    
 
     public Integer getIdFactura() {
         return idFactura;

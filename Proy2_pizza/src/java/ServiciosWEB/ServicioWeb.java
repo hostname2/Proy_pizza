@@ -27,8 +27,8 @@ public class ServicioWeb {
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
-
-    @WebMethod(operationName = "Login")
+    
+        @WebMethod(operationName = "Login")
     public Usuario loginUsuario(
             @WebParam(name = "id") String id_usuario,
             @WebParam(name = "id-password") String usuario_password) {
@@ -41,23 +41,23 @@ public class ServicioWeb {
         } else {
             flag = false;
         }
-        return (flag) ? u : null;
+        return (flag)?u:null;
     }
-
-    @WebMethod(operationName = "retornaCliente")
-    public Cliente retornaCliente(Usuario u) {
+    
+    public Cliente retornaCliente(Usuario u){
         Cliente c = null;
         c = sc.obtenerClientebyUser(u.getIdUsuario());
         return c;
+    }
+    
+    public boolean esadmin( int x){
+        return x == 0;
     }
 
     private boolean valida(Usuario u, String id, String clave) {
         return (u.getIdUsuario().equals(id) && u.getClave().equals(clave));
     }
-
-    public boolean esadmin(int u) {
-        return u == 0;
-    }
+    
 
     ServicioDBUsuario su = new ServicioDBUsuario();
     ServicioDBCliente sc = new ServicioDBCliente();
