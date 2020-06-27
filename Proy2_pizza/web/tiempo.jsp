@@ -24,7 +24,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Work+Sans&display=swap" rel="stylesheet"> 
     </head>
-    <body onload="initCarrito();">
+    <body onload="cargarTiempo();">
         <!-----------------INICIO NAVBAR---------------->
         <div class="navbar-container">
             <div class="nav-contenido">
@@ -60,7 +60,7 @@
                 <!-------------------FILA 1-------------------->
                 <div class="first-row">
                     <div class="new">
-                        <p>asfsadfasdfsa</p>
+                        <p id="entregaTime"></p>
                     </div>
                     <!----------------------------------------->                   
                 </div>

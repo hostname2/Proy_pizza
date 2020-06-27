@@ -14,6 +14,7 @@ var preciohawa = null;
 var preciomarga = null;
 var preciochica = null;
 var preciojyq = null;
+var cod = null;
 var codpepe = null;
 var codsupre = null;
 var codhawa = null;
@@ -46,7 +47,7 @@ function agregarCarrito() {
         var precio = refprecio.value;
         var tamano = reftam.value;
         if (codigo !== "null") {
-            console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano+", " + codpepe);
+            console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano + ", " + cod);
             var pipsa = new Pizza(codigo, precio, tamano, codpepe);
             tablaFactura.push(pipsa);
             //productoSeleccionado = obtenerProducto(codigo);
@@ -64,14 +65,17 @@ function modificarPrecio1() {
         if (tamano === "grande") {
             preciopepe = 5000;
             codpepe = "ssg5";
+            cod = "ssg5";
         }
         if (tamano === "familiar") {
             preciopepe = 7000;
             codpepe = "ssm5";
+            cod = "ssm5";
         }
         if (tamano === "personal") {
             preciopepe = 3000;
             codpepe = "ssp5";
+            cod = "ssp5";
         }
         modificarPreciopepe();
     }
@@ -89,14 +93,17 @@ function modificarPrecio2() {
         if (tamano === "grande") {
             preciosupre = 6000;
             codsupre = "sg5";
+            cod = "sg5";
         }
         if (tamano === "familiar") {
             preciosupre = 8000;
             codsupre = "sm5";
+            cod = "sm5";
         }
         if (tamano === "personal") {
             preciosupre = 3500;
-            codspre = "sp5";
+            codsupre = "sp5";
+            cod = "sp5";
         }
         modificarPreciosupre();
     }
@@ -115,14 +122,17 @@ function modificarPrecio3() {
         if (tamano === "grande") {
             preciohawa = 5000;
             codhawa = "hg5";
+            cod = "hg5";
         }
         if (tamano === "familiar") {
             preciohawa = 7000;
             codhawa = "hm5";
+            cod = "hm5";
         }
         if (tamano === "personal") {
             preciohawa = 3000;
             codhawa = "hp5";
+            cod = "hp5";
         }
         modificarPreciohawa();
     }
@@ -141,14 +151,17 @@ function modificarPrecio4() {
         if (tamano === "grande") {
             preciomarga = 5000;
             codmarga = "mg5";
+            cod = "mg5";
         }
         if (tamano === "familiar") {
             preciomarga = 7000;
             codmarga = "mm5";
+            cod = "mm5";
         }
         if (tamano === "personal") {
             preciomarga = 3000;
             codmarga = "mp5";
+            cod = "mp5";
         }
         modificarPreciomarga();
     }
@@ -167,14 +180,17 @@ function modificarPrecio5() {
         if (tamano === "grande") {
             preciochica = 5000;
             codchica = "cg5";
+            cod = "cg5";
         }
         if (tamano === "familiar") {
             preciochica = 7000;
             codchica = "cm5";
+            cod = "cm5";
         }
         if (tamano === "personal") {
             preciochica = 3000;
             codchica = "cp5";
+            cod = "cp5";
         }
         modificarPreciochica();
     }
@@ -193,14 +209,17 @@ function modificarPrecio6() {
         if (tamano === "grande") {
             preciojyq = 5000;
             codjyq = "vg5";
+            cod = "vg5";
         }
         if (tamano === "familiar") {
             preciojyq = 7000;
             codjyq = "vm5";
+            cod = "vm5";
         }
         if (tamano === "personal") {
             preciojyq = 3000;
             codjyq = "vp5";
+            cod = "vp5";
         }
         modificarPreciojyq();
     }
@@ -222,7 +241,7 @@ function agregarCarrito2() {
         var tamano = reftam.value;
         if (codigo !== "null") {
             console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano);
-            var pipsa = new Pizza(codigo, precio, tamano);
+            var pipsa = new Pizza(codigo, precio, tamano, codsupre);
             tablaFactura.push(pipsa);
         } else {
             productoSeleccionado = null;
@@ -240,7 +259,7 @@ function agregarCarrito3() {
         var tamano = reftam.value;
         if (codigo !== "null") {
             console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano);
-            var pipsa = new Pizza(codigo, precio, tamano);
+            var pipsa = new Pizza(codigo, precio, tamano, codhawa);
             tablaFactura.push(pipsa);
         } else {
             productoSeleccionado = null;
@@ -258,7 +277,7 @@ function agregarCarrito4() {
         var tamano = reftam.value;
         if (codigo !== "null") {
             console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano);
-            var pipsa = new Pizza(codigo, precio, tamano);
+            var pipsa = new Pizza(codigo, precio, tamano, codmarga);
             tablaFactura.push(pipsa);
         } else {
             productoSeleccionado = null;
@@ -276,7 +295,7 @@ function agregarCarrito5() {
         var tamano = reftam.value;
         if (codigo !== "null") {
             console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano);
-            var pipsa = new Pizza(codigo, precio, tamano);
+            var pipsa = new Pizza(codigo, precio, tamano, codchica);
             tablaFactura.push(pipsa);
         } else {
             productoSeleccionado = null;
@@ -294,7 +313,7 @@ function agregarCarrito6() {
         var tamano = reftam.value;
         if (codigo !== "null") {
             console.log("Seleccionando producto: " + codigo + ", " + precio + ", " + tamano);
-            var pipsa = new Pizza(codigo, precio, tamano);
+            var pipsa = new Pizza(codigo, precio, tamano, codjyq);
             tablaFactura.push(pipsa);
         } else {
             productoSeleccionado = null;
@@ -305,6 +324,8 @@ function agregarCarrito6() {
 
 
 function EnviarFactura() {
+    localStorage.setItem("CantF", JSON.stringify(tablaFactura.length));
+    localStorage.setItem("Factura", null);
     console.log("Enviando factura a ServicioFactura");
     var data = new FormData();
     var datos = JSON.stringify(tablaFactura);
@@ -320,6 +341,8 @@ function procesarRespuesta(datos) {
     console.log(datos);
 //    actualizarCodigo(datos);
     eliminarTabla();
+    location.href = "tiempo.jsp";
+//    window.locationf="tiempo.jsp";
 }
 
 function eliminarTabla() {
@@ -327,8 +350,8 @@ function eliminarTabla() {
     if (refTabla) {
 
         for (var i = 0; i < refTabla.rows.length; i++) {
-        tablaFactura.splice(i, 1);
-        refTabla.deleteRow(i-i);
+            tablaFactura.splice(i, 1);
+            refTabla.deleteRow(i - i);
         }
 
     }
@@ -337,6 +360,10 @@ function eliminarTabla() {
 
 function guardarFactura() {
     localStorage.setItem("Factura", JSON.stringify(tablaFactura));
+}
+
+function cantidadF() {
+    return localStorage.getItem("CantF");
 }
 
 function cargarFactura() {
@@ -491,8 +518,18 @@ function eliminarenFactura(refnom, reftam) {
     }
 }
 
+function cargarTiempo() {
 
-function Pizza(nombre, precio, tamano,cod) {
+    var x = parseInt(cantidadF());
+    x *= 15;
+    var reftime = document.getElementById("entregaTime");
+    if (reftime) {
+        reftime.innerHTML = x+" min";
+    }
+}
+
+
+function Pizza(nombre, precio, tamano, cod) {
     this.nombre = nombre;
     this.precio = precio;
     this.tamano = tamano;

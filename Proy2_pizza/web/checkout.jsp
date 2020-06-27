@@ -79,7 +79,7 @@
 
                             </td>
                             <td>
-                                <button type="submit" onclick="EnviarFactura();">Facturar</button>
+                                <button type="submit" onclick="EnviarFactura();" formaction="tiempo.jsp">Facturar</button>
                             </td>
                             </tfoot>
                         </table>
