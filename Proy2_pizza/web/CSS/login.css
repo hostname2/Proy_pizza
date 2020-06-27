@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'montserrat', sans-serif;
 }
 
 body{
@@ -98,6 +98,78 @@ body{
     opacity: .85;
 }
 
+.btn2{
+    color:#ea272d;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'montserrat', sans-serif;
+    text-align: center;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.registrar button{
+    background: none!important;
+    border: none;
+    cursor: pointer;
+}
 
 
+.bg-register{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
 
+.register-content{
+    width: 700px;
+    height: 500px;
+    background-color: white;
+    border-radius: 4px;  
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.register-content input{
+    width: 50%;
+    display: block;
+    margin: 15px auto;
+}
+
+.register-form h1{
+    margin: 35px 0;
+    font-size: 40px;
+    color: #111;
+}
+
+.btn-1{
+    display: block;
+    width: 80px;
+    height:80px;
+    margin: 30px auto;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s linear; 
+}
+
+.cerrar{
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 40px;
+    color: #902923;
+    cursor: pointer;
+}
